@@ -1,0 +1,14 @@
+{
+  "models": [
+    {
+      "name": "Dataset",
+      "target": "Dataset",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "name", "type": "integer"},
+        {"name": "quality", "type": "string"},
+        {"name": "surprise", "type": "boolean"}
+      ]
+    }
+  ]
+}

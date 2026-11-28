@@ -1,0 +1,39 @@
+{
+  "models": [
+    {
+      "name": "CatalogRecord",
+      "target": "#",
+      "fields": [
+        {"name": "dataset", "type": "object", "ref": "Dataset"}
+      ]
+    },
+    {
+      "name": "Dataset",
+      "target": "Dataset",
+      "fields": [
+        {"name": "id", "type": "string"},
+        {"name": "name", "type": "string"},
+        {"name": "owner", "type": "object", "ref": "Organization"},
+        {"name": "tags", "type": "array", "optional": true, "items": {"type": "string"}},
+        {"name": "quality", "type": "integer", "optional": true}
+      ]
+    },
+    {
+      "name": "Organization",
+      "target": "Organization",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "kind", "type": "string", "optional": true}
+      ]
+    },
+    {
+      "name": "Person",
+      "target": "Person",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "email", "type": "string", "optional": true},
+        {"name": "employer", "type": "object", "ref": "Organization", "optional": true}
+      ]
+    }
+  ]
+}

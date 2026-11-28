@@ -1,0 +1,52 @@
+{
+  "$id": "https://esoteriikos.dev/schema/catalog.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CatalogRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["dataset"],
+  "properties": {
+    "dataset": {"$ref": "#/$defs/Dataset"}
+  },
+  "$defs": {
+    "Dataset": {
+      "title": "Dataset",
+      "description": "A dataset published into the catalog.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "owner"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1, "format": "uuid"},
+        "name": {"type": "string", "minLength": 1, "maxLength": 80},
+        "owner": {"$ref": "#/$defs/Organization"},
+        "tags": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "quality": {"type": "integer", "minimum": 0, "maximum": 100}
+      }
+    },
+    "Organization": {
+      "title": "Organization",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "enum": ["publisher", "vendor", "team"]}
+      }
+    },
+    "Person": {
+      "title": "Person",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "email": {"type": "string", "format": "email"},
+        "employer": {"$ref": "#/$defs/Organization"}
+      }
+    }
+  }
+}

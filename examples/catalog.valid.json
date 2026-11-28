@@ -1,0 +1,9 @@
+{
+  "dataset": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "Traffic counts",
+    "owner": {"name": "Civic Lab", "kind": "publisher"},
+    "tags": ["transit", "public"],
+    "quality": 80
+  }
+}

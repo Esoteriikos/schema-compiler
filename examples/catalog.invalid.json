@@ -1,0 +1,9 @@
+{
+  "dataset": {
+    "id": "not-a-uuid",
+    "name": "",
+    "tags": ["a", "a"],
+    "quality": 200,
+    "extra": true
+  }
+}
